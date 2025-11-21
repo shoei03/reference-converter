@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
   title: "Reference Formatter - AI参考文献フォーマットツール",
   description: "大学生のための参考文献を自動フォーマット。AIが論文の引用・参考文献を素早く整形します。シンプルで使いやすい、無料の文献管理ツール。",
   keywords: ["参考文献", "引用", "フォーマット", "論文", "大学生", "AI", "文献管理"],
@@ -37,15 +38,16 @@ export const metadata: Metadata = {
     description: "AIが論文の参考文献を自動フォーマット。大学生のための簡単・高速な文献整形ツール。",
     images: ["/og-image.png"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -54,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
